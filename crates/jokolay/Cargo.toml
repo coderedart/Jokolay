@@ -8,37 +8,50 @@ default-run = "jokolay"
 name = "jokolay"
 path = "src/main.rs"
 
+
 [features]
 # will not work because wayland won't allow us to get global cursor position
 wayland = ["egui_window_glfw_passthrough/wayland"]
 
+
+
 [dependencies]
-joko_core = { path = "../joko_core" }
-joko_render = { path = "../joko_render" }
-jmf = { path = "../joko_marker_format", package = "joko_marker_format" }
-jokolink = { path = "../jokolink" }
-url = { workspace = true, features = ["serde"] }
-egui_window_glfw_passthrough = { version = "0.5" }
+enumflags2 = { workspace = true }
+joko_component_manager = { path = "../joko_component_manager" }
+joko_component_models = { path = "../joko_component_models" }
+joko_ui_models = { path = "../joko_ui_models" }
+joko_plugin_manager = { path = "../joko_plugin_manager" }
+joko_render_manager = { path = "../joko_render_manager" }
+joko_package_manager = { path = "../joko_package_manager" }
+joko_link_manager = { path = "../joko_link_manager" }
+joko_link_ui_manager = { path = "../joko_link_ui_manager" }
+joko_link_models = { path = "../joko_link_models" }
+egui_window_glfw_passthrough = { version = "0.8" }
 # we use this instead of cap-dirs because we want to debug/show the jokolay path to users
 # and `Dir` from cap-dirs doesn't allow us to get the path.
-cap-directories = { version = "*" }
+cap-directories = { workspace = true }
 cap-std = { workspace = true }
 tracing = { workspace = true }
-tracing-subscriber = { version = "0.3", features = [
-    "env-filter",
-    "time",
-] } # for ErrorLayer
-tracing-appender = { version = "*" }
+tracing-appender = { workspace = true }
+tracing-subscriber = { workspace = true }
 miette = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+indexmap = { workspace = true }
+ringbuffer = { workspace = true }
+
+
+rayon = { workspace = true }
+serde = { workspace = true }
+rfd = { workspace = true }
+glam = { workspace = true }
+scopeguard = "1.2.0"
+smol_str = { workspace = true }
 
 egui = { workspace = true, features = ["serde"] }
 egui_extras = { workspace = true }
 
-ringbuffer = { workspace = true }
-rayon = { workspace = true }
-serde = { workspace = true }
-serde_json = { workspace = true }
-indexmap = { workspace = true }
-rfd = { workspace = true }
-glam = { workspace = true }
-# sea-orm ={ version = "*", features = ["sqlx-sqlite"]}
+uuid = { workspace = true }
+toml = "0.8.12"
+directories-next = "2.0.0"
+

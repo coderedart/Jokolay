@@ -1,0 +1,25 @@
+# Define all structures that can be sent through asynchronous messages
+
+[package]
+name = "joko_render_manager"
+version = "0.2.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+bytemuck = { workspace = true }
+glam = { workspace = true, features = ["bytemuck"] }
+tracing = { workspace = true }
+egui = { workspace = true }
+egui_render_three_d = { version = "*" }
+egui_window_glfw_passthrough = { version = "0.8" }
+tokio = { workspace = true }
+
+
+joko_component_models = { path = "../joko_component_models" }
+joko_ui_models = { path = "../joko_ui_models" }
+joko_link_models = { path = "../joko_link_models" }
+joko_render_models = { path = "../joko_render_models" }
+
